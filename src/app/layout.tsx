@@ -1,11 +1,18 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { createTheme, MantineProvider } from '@mantine/core';
+import { createTheme, MantineProvider, rem } from '@mantine/core';
 import '@mantine/core/styles.css';
 import './globals.css';
 
 const theme = createTheme({
   /** Put your mantine theme override here */
+  fontSizes: {
+    xs: rem(10),
+    sm: rem(11),
+    md: rem(14),
+    lg: rem(16),
+    xl: rem(20),
+  },
 });
 
 const inter = Inter({ subsets: ['latin'] });
