@@ -18,3 +18,10 @@ Please follow these instructions to install dependencies and to run the developm
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 # Running Tests
+
+# Additonal Features
+
+Given more time, here are some changes I would add to the app:
+
+- Add different font for headers (i.e. Travel News and Trends)
+- Add color scheme (i.e background color, font color, accent colors, etc.)
