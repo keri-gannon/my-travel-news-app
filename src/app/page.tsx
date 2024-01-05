@@ -1,12 +1,17 @@
 'use client';
 import SearchInput from './_components/SearchInput';
 import Button from './_components/Button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { fetchNYTData } from './_utils/api';
 // TODO: Show articles
 // TODO: Upon click, link to article
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState<string>('');
+
+  useEffect(() => {
+    fetchNYTData();
+  }, []);
 
   return (
     <>
