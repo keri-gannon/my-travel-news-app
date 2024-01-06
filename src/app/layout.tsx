@@ -18,8 +18,8 @@ const theme = createTheme({
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Travel News App',
-  description: 'Using NYTimes API to get travel news',
+  title: 'News App',
+  description: 'Using NYTimes API to get news',
 };
 
 export default function RootLayout({
