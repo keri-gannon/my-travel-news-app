@@ -25,3 +25,5 @@ Given more time, here are some changes I would add to the app:
 
 - Add different font for headers (i.e. Travel News and Trends)
 - Add color scheme (i.e background color, font color, accent colors, etc.)
+- Add toggle to switch between light and dark mode
+- Use a more accurate alt for the Image in ArticlePreview
