@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <>
       <h1 className="font-semibold pt-10 text-center text-4xl">
-        Travel News and Trends
+        News and Trends
       </h1>
       <div className="flex justify-end pt-4">
         <div className="max-w-72 pr-2">
@@ -61,13 +61,16 @@ export default function Home() {
       </div>
       {!!articles.length && (
         <>
-          {articles.map((article, index) => (
-            <ArticlePreview
-              key={index}
-              thumbnail={getThumbnail(article.multimedia)}
-              title={article.title}
-            />
-          ))}
+          <div className="gap-4 grid grid-cols-3 p-12">
+            {articles.map(({ multimedia, title }) => (
+              <div className="col-span-1 p-2" key={title}>
+                <ArticlePreview
+                  thumbnail={getThumbnail(multimedia)}
+                  title={title}
+                />
+              </div>
+            ))}
+          </div>
           <Pagination total={Math.round(articles.length / articlesPerPage)} />
         </>
       )}

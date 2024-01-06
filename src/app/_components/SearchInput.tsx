@@ -14,7 +14,7 @@ function SearchInput({ searchQuery, setSearchQuery }: SearchInputProps) {
       leftSectionPointerEvents="none"
       leftSection={icon}
       onChange={(event) => setSearchQuery(event.currentTarget.value)}
-      placeholder="Search travel topics"
+      placeholder="Search topics by title"
       value={searchQuery}
     />
   );
