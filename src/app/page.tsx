@@ -14,8 +14,7 @@ export type Article = {
 };
 
 async function getNYTData(params = {}) {
-  const baseURL =
-    'https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=vtG2wr3s1y2OYDGc42z0Ej7H22o782X6';
+  const baseURL = `https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=${process.env.NEXT_PUBLIC_NYT_API_KEY}`;
   const res = await fetch(baseURL, params);
 
   if (!res.ok) {
@@ -28,6 +27,7 @@ async function getNYTData(params = {}) {
 export default function Home() {
   const articlesPerPage = 4;
   const [articles, setArticles] = useState<any[]>([]);
+  const [articlesToDisplay, setArticlesToDisplay] = useState<any[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   useEffect(() => {
@@ -35,6 +35,7 @@ export default function Home() {
       try {
         const result = await getNYTData();
         setArticles(result.results);
+        setArticlesToDisplay(result.results);
       } catch (error) {
         console.error('Error');
       }
@@ -42,6 +43,30 @@ export default function Home() {
 
     fetchData();
   }, []);
+
+  // Resetting to display all articles when search query is empty
+  // and the articles to display is not equal to the total articles
+  useEffect(() => {
+    if (
+      searchQuery.length === 0 &&
+      articles.length !== articlesToDisplay.length
+    ) {
+      setArticlesToDisplay(articles);
+    }
+  }, [articles, articlesToDisplay, searchQuery]);
+
+  const getMatchingArticles = () => {
+    const matchingArticles = articles.filter(({ title }) => {
+      return title.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+    setArticlesToDisplay(matchingArticles);
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter' && !!searchQuery.length) {
+      getMatchingArticles();
+    }
+  };
 
   return (
     <>
@@ -51,18 +76,23 @@ export default function Home() {
       <div className="flex justify-end pt-4">
         <div className="max-w-72 pr-2">
           <SearchInput
+            handleKeyDown={handleKeyDown}
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
           />
         </div>
         <div className="pr-2">
-          <Button isDisabled={!searchQuery.length} text="Search" />
+          <Button
+            onClick={getMatchingArticles}
+            isDisabled={!searchQuery.length}
+            text="Search"
+          />
         </div>
       </div>
-      {!!articles.length && (
+      {!!articlesToDisplay.length && (
         <>
           <div className="gap-4 grid grid-cols-3 p-12">
-            {articles.map(({ multimedia, title }) => (
+            {articlesToDisplay.map(({ multimedia, title }) => (
               <div className="col-span-1 p-2" key={title}>
                 <ArticlePreview
                   thumbnail={getThumbnail(multimedia)}
@@ -71,7 +101,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <Pagination total={Math.round(articles.length / articlesPerPage)} />
+          {/* <Pagination total={Math.round(articles.length / articlesPerPage)} /> */}
         </>
       )}
     </>

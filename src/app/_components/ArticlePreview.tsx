@@ -6,6 +6,8 @@ type ArticlePreviewProps = {
   thumbnail: string;
 };
 
+// TODO: Add styling for hover
+// TODO: On click, navigate to article page
 function ArticlePreview({ title, thumbnail }: ArticlePreviewProps) {
   return (
     <div className="border-2 border-emerald flex flex-col h-80 items-center p-6 rounded-md">
