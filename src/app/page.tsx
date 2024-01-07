@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { ArticlePreview, Button, Pagination, SearchInput } from './_components';
-import { getThumbnail } from './_utils/helpers';
+import { ArticlePreview, Button, SearchInput } from './_components';
 
 export type Media = {
   format: string;
@@ -9,8 +8,13 @@ export type Media = {
 };
 
 export type Article = {
-  title: string;
+  abstract: string;
+  author: string;
   multimedia: Media[];
+  photo: string;
+  publishedDate: string;
+  title: string;
+  thumbnail: string;
 };
 
 async function getNYTData(params = {}) {
@@ -25,7 +29,6 @@ async function getNYTData(params = {}) {
 }
 
 export default function Home() {
-  const articlesPerPage = 4;
   const [articles, setArticles] = useState<any[]>([]);
   const [articlesToDisplay, setArticlesToDisplay] = useState<any[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -90,19 +93,13 @@ export default function Home() {
         </div>
       </div>
       {!!articlesToDisplay.length && (
-        <>
-          <div className="gap-4 grid grid-cols-3 p-12">
-            {articlesToDisplay.map(({ multimedia, title }) => (
-              <div className="col-span-1 p-2" key={title}>
-                <ArticlePreview
-                  thumbnail={getThumbnail(multimedia)}
-                  title={title}
-                />
-              </div>
-            ))}
-          </div>
-          {/* <Pagination total={Math.round(articles.length / articlesPerPage)} /> */}
-        </>
+        <div className="gap-4 grid grid-cols-3 p-12">
+          {articlesToDisplay.map((article) => (
+            <div className="col-span-1 p-2" key={article.title}>
+              <ArticlePreview article={article} />
+            </div>
+          ))}
+        </div>
       )}
     </>
   );

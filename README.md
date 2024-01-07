@@ -23,8 +23,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 Given more time, here are some changes I would add to the app:
 
-- Add different font for headers (i.e. Travel News and Trends)
+- Add different fonts for headers and titles
 - Add color scheme (i.e background color, font color, accent colors, etc.)
 - Add toggle to switch between light and dark mode
 - Use a more accurate alt for the Image in ArticlePreview
 - Use Media Queries for different screen sizes
+- Use pagination to show fewer articles on the home page and allow pages
+- Show "No results found" when search has no results
+- Use an API related to travel
+- Add back button to navigate back to home page when on article page

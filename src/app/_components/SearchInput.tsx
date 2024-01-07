@@ -8,7 +8,6 @@ type SearchInputProps = {
   setSearchQuery: (searchQuery: string) => void;
 };
 
-// TODO: Handle no results found
 function SearchInput({
   handleKeyDown,
   searchQuery,
