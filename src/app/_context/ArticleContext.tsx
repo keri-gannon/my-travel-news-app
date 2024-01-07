@@ -7,7 +7,6 @@ type ArticleContextType = {
   setArticle: (article: Article) => void;
 };
 
-// Create a context with an initial default value (null in this case)
 const ArticleContext = createContext<ArticleContextType | undefined>(undefined);
 
 const { Provider } = ArticleContext;
