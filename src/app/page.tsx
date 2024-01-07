@@ -11,7 +11,6 @@ export type Article = {
   abstract: string;
   author: string;
   multimedia: Media[];
-  photo: string;
   publishedDate: string;
   title: string;
   thumbnail: string;

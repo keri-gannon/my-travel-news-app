@@ -1,7 +1,12 @@
 import { Media } from '../page';
 
-export const getThumbnail = (multimedia: Media[]): string => {
+export enum MediaFormats {
+  LargeThumbnail = 'Large Thumbnail',
+  ThreeByTwoSmallAt2X = 'ThreeByTwoSmallAt2X',
+}
+
+export const getPhoto = (multimedia: Media[], format: MediaFormats): string => {
   return multimedia.filter((media: Media) => {
-    return media.format === 'Large Thumbnail';
+    return media.format === format;
   })[0].url;
 };
