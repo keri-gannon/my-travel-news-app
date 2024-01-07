@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import { createTheme, MantineProvider, rem } from '@mantine/core';
 import '@mantine/core/styles.css';
 import './globals.css';
+import { ArticleProvider } from './_context/ArticleContext';
 
 const theme = createTheme({
   /** Put your mantine theme override here */
@@ -30,7 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider theme={theme}>
+          <ArticleProvider>{children}</ArticleProvider>
+        </MantineProvider>
       </body>
     </html>
   );

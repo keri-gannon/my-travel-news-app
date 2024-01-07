@@ -2,7 +2,7 @@ import { Media } from '../page';
 
 export enum MediaFormats {
   LargeThumbnail = 'Large Thumbnail',
-  ThreeByTwoSmallAt2X = 'ThreeByTwoSmallAt2X',
+  ThreeByTwoSmallAt2X = 'threeByTwoSmallAt2X',
 }
 
 export const getPhoto = (multimedia: Media[], format: MediaFormats): string => {
