@@ -7,7 +7,7 @@ import { useArticleContext } from '../../_context/ArticleContext';
 function ArticleComponent() {
   const { selectedArticle } = useArticleContext();
   return (
-    <div className="border-2 border-emerald flex flex-col h-80 hover:cursor-pointer items-center p-6 rounded-md">
+    <div className="border-2 border-emerald flex flex-col h-80 items-center p-6 rounded-md">
       <h1 className="text-center pb-3 text-xl">{selectedArticle?.title}</h1>
       <Image
         alt=""
