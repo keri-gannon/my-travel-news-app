@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { ArticlePreview, Button, SearchInput } from './_components';
+import { ArticlePreview, Button, SearchInput } from '@/app/_components';
 
 export type Media = {
   format: string;

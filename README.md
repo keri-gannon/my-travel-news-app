@@ -17,7 +17,9 @@ Please follow these instructions to install dependencies and to run the developm
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-# Running Tests
+# Tests
+
+I had some difficulty setting up the configuration with Jest. Given more time, I would implement [Jest with Next.js](https://nextjs.org/docs/app/building-your-application/testing/jest).
 
 # Architectural Decisions
 

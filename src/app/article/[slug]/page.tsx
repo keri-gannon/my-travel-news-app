@@ -1,8 +1,8 @@
 'use client';
 import Image from 'next/image';
-import { Media } from '../../page';
+import { Media } from '@/app/page';
 import { getPhoto, MediaFormats } from '@/app/_utils/helpers';
-import { useArticleContext } from '../../_context/ArticleContext';
+import { useArticleContext } from '@/app/_context/ArticleContext';
 
 function ArticleComponent() {
   const { selectedArticle } = useArticleContext();

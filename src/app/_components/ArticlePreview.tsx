@@ -2,9 +2,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { kebabCase } from 'lodash';
-import { Article } from '../page';
-import { MediaFormats, getPhoto } from '../_utils/helpers';
-import { useArticleContext } from '../_context/ArticleContext';
+import { Article } from '@/app/page';
+import { MediaFormats, getPhoto } from '@/app/_utils/helpers';
+import { useArticleContext } from '@/app/_context/ArticleContext';
 
 type ArticlePreviewProps = {
   article: Article;
